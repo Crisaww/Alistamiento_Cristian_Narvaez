@@ -15,10 +15,11 @@ public interface Icliente extends CrudRepository<cliente,String>{
 			
 			+ "c.id_cliente LIKE %?1% OR "
 			+ "c.primer_nombre LIKE %?1% OR "
-			+ "c.ciudad_residencia LIKE %?1% OR "
-			+ "c.estado LIKE % :filtroCliente%")
+			+ "c.ciudad_residencia LIKE %?1%") 
+            // OR "
+			// + "c.estado = %:filtroCliente%")
 	
-	List<cliente> filtroCliente(@Param("filtroCliente") String filtro_cliente);
+	List<cliente> filtroCliente(@Param("filtroCliente")String filtro_cliente);
 
     @Query ("SELECT c FROM cliente c "
                 +"WHERE c.numero_documento=?1 "

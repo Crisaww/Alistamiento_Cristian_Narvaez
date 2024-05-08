@@ -69,7 +69,7 @@ public class productoController {
     }
 
     //ELIMINADO FISICO:
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id_producto}")
     public ResponseEntity<Object> delete(@PathVariable String id_producto){
         productoService.delete(id_producto);
                 return new ResponseEntity<>("producto eliminado con éxito",HttpStatus.OK);

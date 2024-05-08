@@ -20,8 +20,8 @@ body {
     font-weight: 500;
 }
 
-.btn-primary,
-.btn-outline-primary:hover {
+.btn-danger,
+.btn-outline-danger:hover {
     color: var(--bs-light);
 }
 
@@ -56,20 +56,20 @@ body {
     font-weight: normal;
 }
 
-.icon-box-primary,
+.icon-box-danger,
 .icon-box-light {
     position: relative;
     padding: 0 0 10px 10px;
     z-index: 1;
 }
 
-.icon-box-primary i,
+.icon-box-danger i,
 .icon-box-light i {
     font-size: 60px;
     
 }
 
-.icon-box-primary::before,
+.icon-box-danger::before,
 .icon-box-light::before {
     position: absolute;
     content: "";
@@ -82,12 +82,12 @@ body {
     z-index: -1;
 }
 
-.icon-box-primary::before {
-    background: var(--bs-primary);
+.icon-box-danger::before {
+    background: var(--bs-danger);
 }
 
 .icon-box-light::before {
-    background: var(--bs-light);
+    background: white;
 }
 
 .back-to-top {
@@ -119,8 +119,10 @@ body {
 
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link.active {
-    color: var(--bs-primary);
+    color: #f50707;
 }
+
+
 
 .navbar .dropdown-toggle::after {
     border: none;
@@ -200,8 +202,8 @@ body {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 3.5rem;
-    background-color: var(--bs-primary);
-    border: 15px solid var(--bs-primary);
+    background-color: #960909;
+    border: 15px solid #960909;
 }
 
 @media (max-width: 767.98px) {
@@ -291,7 +293,7 @@ body {
     border: none;
     outline: none !important;
     padding: 18px 20px 20px 28px;
-    background: var(--bs-primary);
+    background: var(--bs-danger);
 }
 
 .btn-play:before {
@@ -304,7 +306,7 @@ body {
     display: block;
     width: 90px;
     height: 90px;
-    background: var(--bs-primary);
+    background: var(--bs-danger);
     border-radius: 100%;
     animation: pulse-border 1500ms ease-out infinite;
 }
@@ -319,7 +321,7 @@ body {
     display: block;
     width: 90px;
     height: 90px;
-    background: var(--bs-primary);
+    background: var(--bs-danger);
     border-radius: 100%;
     transition: all 200ms;
 }
@@ -427,7 +429,7 @@ body {
     top: 0;
     right: 0;
     transition: .5s;
-    background: var(--bs-primary);
+    background: var(--bs-danger);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -458,10 +460,14 @@ body {
     width: 300px;
     height: 450px;
     margin-block-end: 20px;
-    background-color: #3368c6;
+    background-color: #960909;
     color: #EEEEEE;
     font-family:'Roboto sans-serif ';
     text-align: center;
+    }
+
+    .dropdown-menu {
+        --bs-dropdown-link-active-bg: #960909;
     }
 /** nabar servicio**/   
 
@@ -480,7 +486,7 @@ body {
     margin-top: 40px;
 
 }
-.btn-primary{
+.btn-danger{
     margin-left: 20px;
     
 }

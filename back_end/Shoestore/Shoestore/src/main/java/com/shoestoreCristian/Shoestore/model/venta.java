@@ -19,7 +19,7 @@ public class venta {
     private String total; 
 
     @Column(name = "estado", nullable = false, length = 10)
-    private estado estado; 
+    private Estado estado; 
 
 
     //MANY TO ONE ********
@@ -37,7 +37,7 @@ public class venta {
     }
 
 
-    public venta(String id_venta, String total, estado estado, cliente cliente) {
+    public venta(String id_venta, String total, Estado estado, cliente cliente) {
         this.id_venta = id_venta;
         this.total = total;
         this.estado = estado;
@@ -63,11 +63,11 @@ public class venta {
         this.total = total;
     }
 
-    public estado getEstado() {
+    public Estado getEstado() {
         return estado;
     }
 
-    public void setEstado(estado estado) {
+    public void setEstado(Estado estado) {
         this.estado = estado;
     }
 
