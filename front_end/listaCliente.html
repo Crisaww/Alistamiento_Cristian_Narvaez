@@ -11,11 +11,12 @@
 
     <link rel="stylesheet" href="css/estilos.css">
     <script src="./js/cliente.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   
 
   
 </head>
-<body>
+<body onload="listarCliente();">
    
     <!-- Topbar Start(Inicio de la barra superior) -->
     <div class="container-fluid py-2 d-none d-lg-flex" style="background-color: black;">
@@ -138,8 +139,8 @@
     </div>
 
 
-    <table class="table table-hover">
-        <thead class="table-light">
+    <table class="table table-hover" >
+        <thead class="table-dark">
             <tr>
                 <th scope="col">Código  de cliente</th>
                 <th scope="col">Tipo de documento</th>
@@ -175,7 +176,7 @@
 
                     <div class="col-6">
                         <label for="tipo_documento" class="form-label">Tipo de documento</label>
-                        <select class="form-select" id="tipo_documento" focusout="validarTipo_documento(this);">
+                        <select class="form-select" id="tipo_documento" focusout="validarTipoDocumento(this);">
                             <option selected disabled value="">Selecciona una Opción</option>
                             <option value="TI">Tarjeta de Identidad</option>
                             <option value="CC">Cedula de Ciudadanía</option>
@@ -191,12 +192,12 @@
             
                         <div class="col-6">
                         <label for="primer_nombre" class="form-label">Primer nombre</label>
-                        <input type="text" class="form-control"  name="primer_nombre" id="primer_nombre" onfocusout="validarNombreApellido(this);">
+                        <input type="text" class="form-control"  name="primer_nombre" id="primer_nombre" onfocusout="validarPrimerNombre(this);">
                         </div>
             
                         <div class="col-6">
                         <label for="primer_apellido" class="form-label">Primer apellido</label>
-                        <input type="text" class="form-control" name="primer_apellido" id="primer_apellido"  onfocusout="validarNombreApellido(this);">
+                        <input type="text" class="form-control" name="primer_apellido" id="primer_apellido"  onfocusout="validarPrimerApellido(this);">
                         </div>
             
                         <div class="col-6">
@@ -206,12 +207,12 @@
 
                         <div class="col-6">
                         <label for="direccion" class="form-label">Dirección de residencia</label>
-                        <input type="text" class="form-control" name="direccion" id="direccion" onfocusout="validarDireccion(this);" >
+                        <input type="text" class="form-control" name="direccion" id="direccion_residencia" onfocusout="validarDireccionResidencia(this);" >
                         </div>
 
                         <div class="col-6">
                             <label for="ciudad" class="form-label">Ciudad de residencia</label>
-                            <input type="text" class="form-control" name="ciudad" id="ciudad" onfocusout="validarCiudad(this);" >
+                            <input type="text" class="form-control" name="ciudad" id="ciudad_residencia" onfocusout="validarCiudadResidencia(this);" >
                         </div>
             
                         <div class="col-6">

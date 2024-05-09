@@ -29,6 +29,12 @@ public class productoService implements IproductoService{
     }
 
     @Override
+	public List<producto> filtroProducto(String filtro_producto) {
+		List<producto>listaproducto=data.filtroProducto(filtro_producto);
+		return listaproducto;
+	}
+
+    @Override
     public Optional<producto> findOne(String id_producto){
         Optional<producto> producto=data.findById(id_producto);
         return producto;

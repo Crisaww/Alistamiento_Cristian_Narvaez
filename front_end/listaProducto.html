@@ -10,11 +10,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="./js/producto.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   
 
   
 </head>
-<body>
+<body onload="listarProducto();">
    
     <!-- Topbar Start(Inicio de la barra superior) -->
     <div class="container-fluid py-2 d-none d-lg-flex" style="background-color: black;">
@@ -73,8 +75,8 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; ">Clientes</a>
                             <div class="dropdown-menu bg-light m-0">                                
-                                <a href="./registroCliente.html" class="dropdown-item" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Registro de clientes</a>
-                                <a href="./listaCliente.html" class="dropdown-item" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Lista de clientes</a>
+                                <a href="./registroCliente.html" class="dropdown-item" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Registro de Clientes</a>
+                                <a href="./listaCliente.html" class="dropdown-item" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Lista de Clientes</a>
                             </div>
                         </div>
 
@@ -107,7 +109,110 @@
         </div>
     </div>
     <!-- Navbar End -->
+     <!-- Listado de Productos -->
+    
+    <!-- star table -->
+    <div class="row" style="margin-right: 0px; justify-content: center;">
+        <h1 class="registrarProducto" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; display: flex; justify-content: center;">Listado de Productos</h1>
+        <div class="col-3">
+            <div class="input-group mb-3 ">
+            <input type="text" class="form-control" placeholder="Busca por nombre" id="buscar" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-success" type="button" onclick="listarProducto();">Buscar</button>
+            </div>
+        </div>    
+        
+        <div class="col-3">
+              <select class="form-select" id="tipo_estado" focusout="validarTipoEstado(this);">
+                <option selected disabled value="">Busca por estado</option>
+                <option value="Activo">Activo</option>
+                <option value="Inactivo">Inactivo</option>
+            </select>
+        </div>  
+    </div>
 
+
+    <table class="table table-hover" >
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Código  del Producto</th>
+                <th scope="col">Nombre del producto</th>
+                <th scope="col">Descripción del producto</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Iva</th>
+                <th scope="col">Descuento</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Editar</th>
+
+            </tr>
+        </thead>
+        <tbody id="cuerpoTablaProducto">
+                 
+        </tbody>
+    </table>
+    <!-- Final del Listado de Productos -->
+
+    <!-- Modal modificar productos -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-right: 300px;">
+    <div class="modal-dialog modal-dialog-scrollable" >
+        <div class="modal-content" style="width: 800px; ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modificar Producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+                <div class="modal-body" >
+                    <div class="row" >
+
+            
+                    <div class="col-6">
+                        <label for="nombre_producto" class="form-label">Nombre del producto</label>
+                        <input type="number" class="form-control" name="nombre_producto" id="nombre_producto"  onfocusout="validarNombreProducto(this);">
+                        </div>
+            
+                        <div class="col-6">
+                        <label for="descripcion" class="form-label">Descripcion del producto</label>
+                        <input type="text" class="form-control"  name="descripcion" id="descripcion" onfocusout="validarDescripcion(this);">
+                        </div>
+            
+                        <div class="col-6">
+                        <label for="cantidad" class="form-label">Cantidad</label>
+                        <input type="text" class="form-control" name="cantidad" id="cantidad"  onfocusout="validarCantidad(this);">
+                        </div>
+            
+                        <div class="col-6">
+                        <label for="precio" class="form-label">Precio unitario del producto</label>
+                        <input type="number" class="form-control" name="precio" id="precio"   onfocusout="validarPrecio(this);">
+                        </div>
+
+                        <div class="col-6">
+                        <label for="porcentaje_iva" class="form-label">Porcentaje iva</label>
+                        <input type="text" class="form-control" name="porcentaje_iva" id="porcentaje_iva" onfocusout="validarPorcentajeIva(this);" >
+                        </div>
+
+                        <div class="col-6">
+                            <label for="porcentaje_descuento" class="form-label">Porcentaje descuento</label>
+                            <input type="text" class="form-control" name="ciudad" id="porcentaje_descuento" onfocusout="validarPorcentajeDescuento(this);" >
+                        </div>
+                        
+                        <div class="col-6">
+                        <label for="estado" class="form-label">Estado</label>
+                        <select name="estado" id="estado" class="form-select" onfocusout="validarEstado(this);">
+                            <option selected disabled value="">¿En que estado se encuentra?...</option>
+                            <option value="Activo">Activo</option>
+                            <option value="Inactivo">Inactivo</option>
+                        </select>
+                        </div>
+                
+                        </div> 
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" onclick="updateProducto();">Guardar</button>
+                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+             </div>
+        </div>    
+    </div>
+</div> 
+<!-- Final modal modificar de Productos -->
 
     
 </body>

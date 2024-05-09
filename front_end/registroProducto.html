@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="./js/producto.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   
 
   
@@ -106,9 +108,62 @@
             </nav>
         </div>
     </div>
-    <!-- Navbar End -->
+
+     <!-- from Star(fromulario inicio) -->
+   <div class="row" style="margin-right: 0px;"> 
+    <h1 class="registrarClienteT" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; display: flex; justify-content: center;">Registrar productos</h1> 
 
 
-    
+
+        <div class="col-md-4">
+            <p><strong>Todos los campos que contengan (*) son obligatorios</strong> </p>
+        </div> 
+
+
+        <div class="col-md-4">
+            <label for="nombre_producto" class="form-label">Nombre del producto*</label>
+            <input type="text" class="form-control" name="nombre_producto" id="nombre_producto" onfocusout="validarNombreProducto(this);">
+        </div>
+
+        <div class="col-md-4">
+            <label for="descripcion" class="form-label">Descripción del producto*</label>
+            <input type="text" class="form-control" name="descripcion" id="descripcion" onfocusout="validarDescripcion(this);" >
+        </div>
+
+        <div class="col-md-4">
+            <label for="cantidad" class="form-label">Cantidad*</label>
+            <input type="text" class="form-control" name="cantidad" id="cantidad" onfocusout="validarCantidad(this);">
+        </div>
+
+        <div class="col-md-4">
+            <label for="precio" class="form-label">Precio unitario del producto*</label>
+            <input type="text" class="form-control" name="precio" id="precio" onfocusout="validarPrecio(this);">
+        </div>
+
+        <div class="col-md-4">
+            <label for="porcentaje_iva" class="form-label">Porcentaje iva*</label>
+            <input type="text" class="form-control" name="porcentaje_iva" id="porcentaje_iva" onfocusout="validarPorcentajeIva(this);" >
+        </div>
+
+        <div class="col-md-4">
+            <label for="porcentaje_descuento" class="form-label">Porcentaje descuento*</label>
+            <input type="text" class="form-control" name="porcentaje_descuento" id="porcentaje_descuento" onfocusout="validarPorcentajeDescuento(this);" >
+        </div>
+
+
+
+        <div class="col-md-4">
+            <label for="estado" class="form-label">Estado*</label>
+             <select name="estado" id="estado" class="form-select" onfocusout="validarEstado(this);">
+                <option selected disabled value="">¿En qué estado se encuentra?...</option>
+                <option value="Activo">Activo</option>
+            </select>
+        </div>
+        <div class="col-12" style=" display: flex;justify-content: center;">
+            <button class="btn btn-danger" type="button" onclick="RegistrarProducto();" style="width: 200px;">Registrar</button>
+            <button class="btn btn-dark" type="button" onclick="LimpiarProducto();" style="width: 200px;">Limpiar</button>
+        </div>
+    </div>
+    <!-- from End(fromulario final) -->
 </body>
 </html>

@@ -61,6 +61,12 @@ public class productoController {
         return new ResponseEntity<>(listaproducto, HttpStatus.OK);
     }
 
+    @GetMapping("/busquedafiltro/{filtro_producto}")
+	public ResponseEntity<Object> findFiltro(@PathVariable String filtro_producto){
+		var listaproducto=productoService.filtroProducto(filtro_producto);
+		return new ResponseEntity<>(listaproducto, HttpStatus.OK);
+	}
+
 
     @GetMapping("/{id_producto}")
     public ResponseEntity<Object> findOne(@PathVariable String id_producto){
