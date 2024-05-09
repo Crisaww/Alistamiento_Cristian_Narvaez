@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="./js/cliente.js"></script>
   
 
   
@@ -107,6 +108,136 @@
         </div>
     </div>
     <!-- Navbar End -->
+
+    <!-- Listado de clientes -->
+    
+    <!-- star table -->
+    <div class="row" style="margin-right: 0px; justify-content: center;">
+        <h1 class="registrarCliente" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; display: flex; justify-content: center;">Listado de clientes</h1>
+        <div class="col-3">
+            <div class="input-group mb-3 ">
+            <input type="text" class="form-control" placeholder="Busca por nombre" id="buscar" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-success" type="button" onclick="listarCliente();">Buscar</button>
+            </div>
+        </div>   
+
+        <div class="col-3">
+            <div class="input-group mb-3 ">
+            <input type="text" class="form-control" placeholder="Busca por ciudad" id="buscar" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-success" type="button" onclick="listarCliente();">Buscar</button>
+            </div>
+        </div> 
+        
+        <div class="col-3">
+              <select class="form-select" id="tipo_estado" focusout="validarTipo_estado(this);">
+                <option selected disabled value="">Busca por estado</option>
+                <option value="Activo">Activo</option>
+                <option value="Inactivo">Inactivo</option>
+            </select>
+        </div>  
+    </div>
+
+
+    <table class="table table-hover">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">Código  de cliente</th>
+                <th scope="col">Tipo de documento</th>
+                <th scope="col">N° de documento</th>
+                <th scope="col">Primer nombre</th>
+                <th scope="col">Primer apellido</th>
+                <th scope="col">N° de celular</th>
+                <th scope="col">Dirección de residencia</th>
+                <th scope="col">Ciudad de residencia</th>
+                <th scope="col">Correo electrónico </th>
+                <th scope="col">Estado</th>
+                <th scope="col">Editar</th>
+
+            </tr>
+        </thead>
+        <tbody id="cuerpoTablaCliente">
+                 
+        </tbody>
+    </table>
+    <!-- Final del Listado de clientes -->
+
+    <!-- Modal modificar liente -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-right: 300px;">
+    <div class="modal-dialog modal-dialog-scrollable" >
+        <div class="modal-content" style="width: 800px; ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modificar cliente</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+                <div class="modal-body" >
+                    <div class="row" >
+
+                    <div class="col-6">
+                        <label for="tipo_documento" class="form-label">Tipo de documento</label>
+                        <select class="form-select" id="tipo_documento" focusout="validarTipo_documento(this);">
+                            <option selected disabled value="">Selecciona una Opción</option>
+                            <option value="TI">Tarjeta de Identidad</option>
+                            <option value="CC">Cedula de Ciudadanía</option>
+                            <option value="CE">Cedula de Extranjería</option>
+                        </select>
+                    </div>
+            
+                    <div class="col-6">
+                        <label for="numero_documento" class="form-label">Número de documento</label>
+                        <input type="number" class="form-control" name="numero_documento" id="numero_documento"  step="1" onfocusout="validarNumeroDocumento(this);">
+                        <input type="hidden" id="id_cliente" step="1">
+                        </div>
+            
+                        <div class="col-6">
+                        <label for="primer_nombre" class="form-label">Primer nombre</label>
+                        <input type="text" class="form-control"  name="primer_nombre" id="primer_nombre" onfocusout="validarNombreApellido(this);">
+                        </div>
+            
+                        <div class="col-6">
+                        <label for="primer_apellido" class="form-label">Primer apellido</label>
+                        <input type="text" class="form-control" name="primer_apellido" id="primer_apellido"  onfocusout="validarNombreApellido(this);">
+                        </div>
+            
+                        <div class="col-6">
+                        <label for="celular" class="form-label">Número de celular</label>
+                        <input type="number" class="form-control" name="celular" id="celular"   onfocusout="validarCelular(this);">
+                        </div>
+
+                        <div class="col-6">
+                        <label for="direccion" class="form-label">Dirección de residencia</label>
+                        <input type="text" class="form-control" name="direccion" id="direccion" onfocusout="validarDireccion(this);" >
+                        </div>
+
+                        <div class="col-6">
+                            <label for="ciudad" class="form-label">Ciudad de residencia</label>
+                            <input type="text" class="form-control" name="ciudad" id="ciudad" onfocusout="validarCiudad(this);" >
+                        </div>
+            
+                        <div class="col-6">
+                        <label for="correo_electronico" class="form-label">Correo electrónico</label>
+                        <input type="text" class="form-control" name="correo_electronico" id="correo_electronico" onfocusout="validarCorreoElectronico(this);">
+                        </div>
+                        
+                        <div class="col-6">
+                        <label for="estado" class="form-label">Estado</label>
+                        <select name="estado" id="estado" class="form-select" onfocusout="validarEstado(this);">
+                            <option selected disabled value="">¿En que estado se encuentra?...</option>
+                            <option value="Activo">Activo</option>
+                            <option value="Inactivo">Inactivo</option>
+                        </select>
+                        </div>
+                
+                        </div> 
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" onclick="updateCliente();">Guardar</button>
+                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+             </div>
+        </div>    
+    </div>
+</div> 
+<!-- Final modal modificar de clientes -->
 
 
     

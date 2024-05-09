@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="./js/cliente.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   
 
   
@@ -112,12 +114,12 @@
 
     <!-- from Star(fromulario inicio) -->
    <div class="row" style="margin-right: 0px;"> 
-    <h1 class="registrarPacienteT" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Registrar clientes</h1> 
+    <h1 class="registrarClienteT" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; display: flex; justify-content: center;">Registrar clientes</h1> 
 
 
     <div class="col-md-4">
-        <label for="tipo_documento" class="form-label">Tipo identificación*</label>
-        <select class="form-select" id="tipo_documento" focusout="validarTipo_documento(this);">
+        <label for="tipo_documento" class="form-label">Tipo de documento*</label>
+        <select class="form-select" id="tipo_documento" focusout="validarTipoDocumento(this);">
             <option selected disabled value="">Seleccione una Opción</option>
             <option value="TI">Tarjeta de Identidad</option>
             <option value="CC">Cedula de Ciudadanía</option>
@@ -131,45 +133,45 @@
 
 
         <div class="col-md-4">
-            <label for="numero_documento" class="form-label">Número Documento*</label>
-            <input type="text" class="form-control" name="numero_documento" id="numero_documento" step="1" onfocusout="(this);">
+            <label for="numero_documento" class="form-label">Número de documento*</label>
+            <input type="text" class="form-control" name="numero_documento" id="numero_documento" step="1" onfocusout="validarNumeroDocumento(this);">
         </div>
 
         <div class="col-md-4">
-            <label for="primer_nombre" class="form-label">Primer Nombre*</label>
-            <input type="text" class="form-control" name="primer_nombre" id="primer_nombre" onfocusout="(this);" >
+            <label for="primer_nombre" class="form-label">Primer nombre*</label>
+            <input type="text" class="form-control" name="primer_nombre" id="primer_nombre" onfocusout="validarPrimerNombre(this);" >
         </div>
 
         <div class="col-md-4">
             <label for="primer_apellido" class="form-label">Primer apellido*</label>
-            <input type="text" class="form-control" name="primer_apellido" id="primer_apellido" onfocusout="validarNombreApellido(this);">
+            <input type="text" class="form-control" name="primer_apellido" id="primer_apellido" onfocusout="validarPrimerApellido(this);">
         </div>
 
         <div class="col-md-4">
-            <label for="celular" class="form-label">Número Celular*</label>
+            <label for="celular" class="form-label">Número de celular*</label>
             <input type="text" class="form-control" name="celular" id="celular" onfocusout="validarCelular(this);">
         </div>
 
         <div class="col-md-4">
             <label for="direccion" class="form-label">Dirección de residencia*</label>
-            <input type="text" class="form-control" name="direccion" id="direccion" onfocusout="validarDireccion(this);" >
+            <input type="text" class="form-control" name="direccion" id="direccion" onfocusout="validarDireccionResidencia(this);" >
         </div>
 
         <div class="col-md-4">
             <label for="ciudad" class="form-label">Ciudad de residencia*</label>
-            <input type="text" class="form-control" name="ciudad" id="ciudad" onfocusout="(this);" >
+            <input type="text" class="form-control" name="ciudad" id="ciudad" onfocusout="validarCiudadResidencia(this);" >
         </div>
 
         <div class="col-md-4">
             <label for="correo_electronico" class="form-label">Correo electrónico*</label>
-            <input type="text" class="form-control" name="correo_electronico" id="correo_electronico" >
+            <input type="text" class="form-control" name="correo_electronico" id="correo_electronico" onfocusout="validarCorreoElectronico(this);">
         </div>
 
         <div class="col-md-4">
             <label for="estado" class="form-label">Estado*</label>
-             <select name="estado" id="estado" class="form-select"  >
+             <select name="estado" id="estado" class="form-select" >
                 <option selected disabled value="">¿En qué estado se encuentra?...</option>
-                <option value="Activo">Ingreso</option>
+                <option value="Activo">Activo</option>
             </select>
         </div>
         <div class="col-12" style=" display: flex;justify-content: center;">
