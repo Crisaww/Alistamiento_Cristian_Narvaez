@@ -312,7 +312,7 @@ function consultarProductoID(id_producto){
         type:"GET",
         success: function(result){
             
-            document.getElementById("id_producto").value=result["id_producto"];
+            
             document.getElementById("nombre_producto").value=result["nombre_producto"];
             document.getElementById("descripcion").value=result["descripcion"];
             document.getElementById("cantidad").value=result["cantidad"];
