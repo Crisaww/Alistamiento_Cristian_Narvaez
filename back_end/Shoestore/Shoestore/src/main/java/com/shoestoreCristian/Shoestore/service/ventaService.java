@@ -28,11 +28,26 @@ public class ventaService implements IventaService{
         return listaventa;
     }
 
+     @Override
+	public List<venta> filtroVenta(String filtro_venta) {
+		List<venta>listaventa=data.filtroVenta(filtro_venta);
+		return listaventa;
+	}
+
+    // la variable que almacena los registros
+	// @Override
+	// public List<venta> filtroEstado(String id_cliente) {
+	// 	List<venta>listaventa=data.filtroEstado(id_cliente);
+	// 	return listaventa;
+	// }
+
     @Override
     public Optional<venta> findOne(String id_venta){
         Optional<venta> venta=data.findById(id_venta);
         return venta;
     }
+
+
 
 
     //ELIMINADO FISICO: Se elimina directamente de la base de datos*****

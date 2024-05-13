@@ -1,6 +1,6 @@
 package com.shoestoreCristian.Shoestore.model;
 
-public enum Estado {
+public enum estadoCliente {
      /*
      * ENUM: Clase abstracta que todos los tipos enumeración
      * 

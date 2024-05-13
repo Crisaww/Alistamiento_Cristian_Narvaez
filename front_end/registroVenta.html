@@ -10,11 +10,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="./js/venta.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   
 
   
 </head>
-<body>
+<body onload="CargarFormulario();">
    
     <!-- Topbar Start(Inicio de la barra superior) -->
     <div class="container-fluid py-2 d-none d-lg-flex" style="background-color: black;">
@@ -68,7 +70,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav">
-                        <a href="index.html" class="nav-item nav-link active" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: black;">Home</a>
+                        <a href="./index.html" class="nav-item nav-link " style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Home</a>
                         <a href="./dash.html" class="nav-item nav-link" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Dashboard</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; ">Clientes</a>
@@ -107,6 +109,57 @@
         </div>
     </div>
     <!-- Navbar End -->
+
+    <!-- from Star(fromulario inicio) -->
+   <div class="row" style="margin-right: 0px;"> 
+    <h1 class="registrarVentaT" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; display: flex; justify-content: center;">Registrar ventas</h1> 
+    
+    <div class="col-md-4">
+        <p><strong>Todos los campos que contengan (*) son obligatorios</strong> </p>
+    </div> 
+
+    <div class="col-md-4">
+        <label for="cliente" class="form-label">Nombre del cliente*</label>
+        <select name="cliente" id="id_cliente" class="form-select"> 
+          <option value="" selected disabled>Seleccione el cliente</option>
+          <option value=""></option>
+          <option value=""></option>
+        </select>
+      </div>
+
+    
+    <div class="col-md-4">
+        <label for="total" class="form-label">Total de la venta*</label>
+        <input type="text" class="form-control" name="total" id="total"  onfocusout="validarTotalVenta(this);">
+    </div>
+
+
+
+
+        <div class="col-md-4">
+            <label for="fecha_venta" class="form-label">Fecha de la venta*</label>
+            <input type="date" class="form-control" name="fecha_venta" id="fecha_venta"  onfocusout="validarFechaVenta(this);" >
+        </div>
+
+    
+
+        <div class="col-md-4">
+            <label for="estado" class="form-label">Estado*</label>
+             <select name="estado" id="estado" class="form-select" onfocusout="validarEstado(this);">
+                <option selected disabled value="">¿En qué estado se encuentra la venta?...</option>
+                <option value="Pagada">Pagada</option>
+                <option value="Pendiente">Pendiente</option>
+                <option value="Cancelada">Cancelada</option>
+                <option value="Borrador">Borrador</option>
+            </select>
+        </div>
+        
+        <div class="col-12" style=" display: flex;justify-content: center;">
+            <button class="btn btn-danger" type="button" onclick="RegistrarVenta();" style="width: 200px;">Registrar</button>
+            <button class="btn btn-dark" type="button" onclick="LimpiarVenta();" style="width: 200px;">Limpiar</button>
+        </div>
+    </div>
+    <!-- from End(fromulario final) -->
 
 
     

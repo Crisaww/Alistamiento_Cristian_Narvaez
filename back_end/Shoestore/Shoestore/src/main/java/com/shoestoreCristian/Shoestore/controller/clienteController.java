@@ -37,7 +37,7 @@ public class clienteController {
             if (listaClienteValidacion.size()!=0) {
                 return new ResponseEntity<>("El cliente ya se encuentra registrado", HttpStatus.BAD_REQUEST);
             }
-            if (cliente.getTipo_documento().equals("")) {
+            if (cliente.getTipo_documento()==null) {
 				return new ResponseEntity<>("El tipo documento es obligatorio", HttpStatus.BAD_REQUEST);
 			}
 			if (cliente.getNumero_documento().equals("")) {
@@ -58,7 +58,7 @@ public class clienteController {
 			if (cliente.getCiudad_residencia().equals("")) {
 				return new ResponseEntity<>("La ciudad de residencia es obligatoria", HttpStatus.BAD_REQUEST);
 			}
-			if (cliente.getEstado().equals("")) {
+			if (cliente.getEstado()==null) {
 				return new ResponseEntity<>("El estado del cliente es obligatorio", HttpStatus.BAD_REQUEST);
 			}
 		clienteService.save(cliente);

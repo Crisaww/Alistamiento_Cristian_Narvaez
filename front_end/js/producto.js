@@ -312,7 +312,7 @@ function consultarProductoID(id_producto){
         type:"GET",
         success: function(result){
             
-            
+            document.getElementById("id_producto").value=result["id_producto"];
             document.getElementById("nombre_producto").value=result["nombre_producto"];
             document.getElementById("descripcion").value=result["descripcion"];
             document.getElementById("cantidad").value=result["cantidad"];
@@ -380,7 +380,7 @@ function eliminarProducto(id_producto){
       confirmButtonColor:'#3085d6',
       cancelButtonText:'Cancelar',
       cancelButtonColor:'#d33',
-      confirmButtonText:'Sí, Eliminar!',
+      confirmButtonText:'Sí, !Eliminar!',
   
     }).then((result)=>{
       if (result.isConfirmed){
@@ -389,8 +389,8 @@ function eliminarProducto(id_producto){
           type: "DELETE",
           success: function(result){
             swal.fire(
-              'Deshabilitado',
-              'El Producto ha sido eliminado ',
+              'Eliminado',
+              'El producto ha sido eliminado ',
               'success'
             );
             listarProducto();//recarga la lista de Productos

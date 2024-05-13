@@ -34,7 +34,7 @@ public class producto {
     private int porcentaje_descuento; 
 
     @Column(name = "estado", nullable = false, length = 10)
-    private Estado estado; 
+    private estadoProducto estado; 
 
     
 
@@ -43,7 +43,7 @@ public class producto {
     }
 
 
-    public producto(String id_producto, String nombre_producto, String descripcion, int cantidad, double precio, int porcentaje_iva, int porcentaje_descuento, Estado estado) {
+    public producto(String id_producto, String nombre_producto, String descripcion, int cantidad, double precio, int porcentaje_iva, int porcentaje_descuento, estadoProducto estado) {
         this.id_producto = id_producto;
         this.nombre_producto = nombre_producto;
         this.descripcion = descripcion;
@@ -111,11 +111,11 @@ public class producto {
         this.porcentaje_descuento = porcentaje_descuento;
     }
 
-    public Estado getEstado() {
+    public estadoProducto getEstado() {
         return estado;
     }
 
-    public void setEstado(Estado estado) {
+    public void setEstado(estadoProducto estado) {
         this.estado = estado;
     }
     

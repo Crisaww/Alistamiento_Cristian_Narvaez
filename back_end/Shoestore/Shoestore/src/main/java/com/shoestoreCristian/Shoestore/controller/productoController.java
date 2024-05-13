@@ -47,7 +47,7 @@ public class productoController {
             if (producto.getPorcentaje_descuento()==0) {
                 return new ResponseEntity<>("El porcentaje del descuento es obligatorio", HttpStatus.BAD_REQUEST);
             }
-            if (producto.getEstado().equals("")) {
+            if (producto.getEstado()==null) {
                 return new ResponseEntity<>("El estado del producto es obligatorio", HttpStatus.BAD_REQUEST);
             }
         productoService.save(producto);

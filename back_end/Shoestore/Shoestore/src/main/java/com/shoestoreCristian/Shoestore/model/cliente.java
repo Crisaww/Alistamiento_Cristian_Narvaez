@@ -40,7 +40,7 @@ public class cliente {
     private String correo_electronico;
 
     @Column(name = "estado", nullable = false, length = 10)
-    private Estado estado; 
+    private estadoCliente estado; 
 
 
     public cliente() {
@@ -50,7 +50,7 @@ public class cliente {
 	public cliente(String id_cliente, tipodocumento tipo_documento, String numero_documento, 
 					String primer_nombre, String primer_apellido,
 					String celular, String direccion_residencia, 
-					String ciudad_residencia, String correo_electronico, Estado estado)
+					String ciudad_residencia, String correo_electronico, estadoCliente estado)
 	{
 		super();
 		
@@ -138,11 +138,11 @@ public class cliente {
         this.correo_electronico = correo_electronico;
     }
 
-    public Estado getEstado() {
+    public estadoCliente getEstado() {
         return estado;
     }
 
-    public void setEstado(Estado estado) {
+    public void setEstado(estadoCliente estado) {
         this.estado = estado;
     }
     

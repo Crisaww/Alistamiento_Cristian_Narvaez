@@ -173,7 +173,7 @@ function validarTipoDocumento(tipoDocumento) {
 
     let valor = tipoDocumento.value;
     let valido = true;
-    if (valor.length < 0 || valor.length > 2) {
+    if (valor.length <=0 || valor.length > 2) {
         valido = false;
     }
 
@@ -417,7 +417,7 @@ function eliminarCliente(id_cliente){
       confirmButtonColor:'#3085d6',
       cancelButtonText:'Cancelar',
       cancelButtonColor:'#d33',
-      confirmButtonText:'Sí, Eliminar!',
+      confirmButtonText:'Sí, !Eliminar!',
   
     }).then((result)=>{
       if (result.isConfirmed){
@@ -426,7 +426,7 @@ function eliminarCliente(id_cliente){
           type: "DELETE",
           success: function(result){
             swal.fire(
-              'Deshabilitado',
+              'Eliminado',
               'El cliente ha sido eliminado ',
               'success'
             );

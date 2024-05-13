@@ -1,5 +1,7 @@
 package com.shoestoreCristian.Shoestore.model;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,8 +20,12 @@ public class venta {
     @Column(name = "total", nullable = false, length = 45)
     private String total; 
 
+    @Column (name = "fecha_venta", nullable = false)
+    private LocalDate fecha_venta;
+
     @Column(name = "estado", nullable = false, length = 10)
-    private Estado estado; 
+    private estadoVenta estado; 
+
 
 
     //MANY TO ONE ********
@@ -37,11 +43,13 @@ public class venta {
     }
 
 
-    public venta(String id_venta, String total, Estado estado, cliente cliente) {
+    public venta(String id_venta, cliente cliente,  String total, LocalDate fecha_venta, estadoVenta estado) {
         this.id_venta = id_venta;
         this.total = total;
+        this.cliente= cliente;
+        this.fecha_venta = fecha_venta;
         this.estado = estado;
-        this.cliente = cliente;
+        
 
         
     }
@@ -55,6 +63,14 @@ public class venta {
         this.id_venta = id_venta;
     }
 
+    public cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(cliente cliente) {
+		this.cliente = cliente;
+	}
+
     public String getTotal() {
         return total;
     }
@@ -63,21 +79,25 @@ public class venta {
         this.total = total;
     }
 
-    public Estado getEstado() {
+    public void setFecha_venta(LocalDate fecha_venta) {
+        this.fecha_venta = fecha_venta;
+    }
+
+    public LocalDate getFecha_venta() {
+        return fecha_venta;
+    }
+
+
+    public estadoVenta getEstado() {
         return estado;
     }
 
-    public void setEstado(Estado estado) {
+
+    public void setEstado(estadoVenta estado) {
         this.estado = estado;
     }
 
-    public cliente getCliente(){
-        return cliente;
-    }
-
-    public void setCliente (cliente cliente) {
-            this.cliente = cliente;
-    }
+    
 
     
 

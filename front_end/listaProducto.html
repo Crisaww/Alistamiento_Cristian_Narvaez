@@ -70,7 +70,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav">
-                        <a href="index.html" class="nav-item nav-link active" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: black;">Home</a>
+                        <a href="index.html" class="nav-item nav-link" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Home</a>
                         <a href="./dash.html" class="nav-item nav-link" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Dashboard</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; ">Clientes</a>
@@ -134,10 +134,11 @@
     <table class="table table-hover" >
         <thead class="table-dark">
             <tr>
-                <th scope="col">Código  del Producto</th>
+                <th scope="col">Código del Producto</th>
                 <th scope="col">Nombre del producto</th>
                 <th scope="col">Descripción del producto</th>
                 <th scope="col">Cantidad</th>
+                <th scope="col">Precio</th>
                 <th scope="col">Iva</th>
                 <th scope="col">Descuento</th>
                 <th scope="col">Estado</th>
@@ -162,12 +163,12 @@
 
                 <div class="modal-body" >
                     <div class="row" >
-
-            
-                    <div class="col-6">
-                        <label for="nombre_producto" class="form-label">Nombre del producto</label>
-                        <input type="number" class="form-control" name="nombre_producto" id="nombre_producto"  onfocusout="validarNombreProducto(this);">
-                        </div>
+                        
+                        <div class="col-6">
+                            <label for="nombre_producto" class="form-label">Nombre del producto</label>
+                            <input type="text" class="form-control" name="nombre_producto" id="nombre_producto"  onfocusout="validarNombreProducto(this);">
+                            <input type="hidden" id="id_producto" step="1">
+                    </div>
             
                         <div class="col-6">
                         <label for="descripcion" class="form-label">Descripcion del producto</label>
