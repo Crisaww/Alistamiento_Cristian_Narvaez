@@ -15,7 +15,7 @@ public interface Icliente extends CrudRepository<cliente,String>{
 			
 			+ "c.id_cliente LIKE %?1% OR "
 			+ "c.primer_nombre LIKE %?1% OR "
-			+ "c.ciudad_residencia LIKE %?1%") 
+			+ "c.ciudad_residencia LIKE %?1% ") 
             // OR "
 			// + "c.estado = %:filtroCliente%")
 	

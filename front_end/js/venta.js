@@ -27,7 +27,7 @@ function listarVenta() {
                 //almacenamos en valor
                 celdaId.innerText= result[i]["id_venta"];
 
-               celdaIdCliente.innerText = result[i]["id_cliente"] + " " + result[i]["primer_nombre"] + " " + result[i]["cliente"] + " " + result[i]["primer_apellido"];
+                celdaIdCliente.innerText = result[i]["id_cliente"]+" "+result[i]["primer_nombre"]+" "+result[i]["cliente"]+""+result[i]["primer_apellido"];
                 celdaTotalVenta.innerText = result[i]["total"];
                 celdaFechaVenta.innerText = result[i]["fecha_venta"];
                 celdaEstado.innerText = result[i]["estado"];
@@ -85,7 +85,7 @@ function RegistrarVenta() {
     
     let formData = {
         
-        "cliente": cliente,
+        "id_cliente": cliente,
         "total": total,
         "fecha_venta": fecha_venta,
         "estado": estado
@@ -226,10 +226,10 @@ function LimpiarVenta(){
 
 /* metodo para obtener los datos en el modal de actualizar*/ 
 //1.Crear petición que traiga la información del venta por id
-function consultarVentaID(id_venta){
+function consultarVentaID(id){
     //alert(id);
     $.ajax({
-        url:url+id_venta,
+        url:url+id,
         type:"GET",
         success: function(result){
             
@@ -245,6 +245,7 @@ function consultarVentaID(id_venta){
 
 //Cuando le damos click al boton de guardar, este llamara a la function Updateventa por medio del onclick******
 function updateVenta() {
+    
     var id_venta = document.getElementById("id_venta").value;
 
     let formData = {
@@ -286,34 +287,6 @@ function updateVenta() {
         }
 }
 
-function CargarFormulario() {
-    cargarCliente();
-}
-
-function cargarCliente() {
-    let urlCliente = "http://localhost:8082/api/v1/cliente/";
-  
-    $.ajax({
-      url: urlCliente,
-      type: "GET",
-      success: function (result) {
-        let cliente = document.getElementById("id_cliente");
-        cliente.innerHTML = "";
-        for (let i = 0; i < result.length; i++) {
-          let nombreCliente = document.createElement("option");
-          nombreCliente.value = result[i]["id_cliente"];
-          nombreCliente.innerText = nombre_completo_cliente =
-            result[i]["primer_nombre"] +
-            " " +
-            result[i]["primer_apellido"];
-          cliente.appendChild(nombreCliente);
-        }
-    },
-});
-}
-
-
-
 // funcion  de deshabilitar venta
 function eliminarVenta(id_venta){
     swal.fire({
@@ -350,3 +323,35 @@ function eliminarVenta(id_venta){
       }
     });
   }
+
+function CargarFormulario() {
+    cargarCliente();
+}
+
+function cargarCliente() {
+    let urlCliente = "http://localhost:8082/api/v1/cliente/";
+  
+    $.ajax({
+      url: urlCliente,
+      type: "GET",
+      success: function (result) {
+        let cliente = document.getElementById("id_cliente");
+        cliente.innerHTML = "";
+        let seleccioneOpcion = document.createElement("option");
+        seleccioneOpcion.value="";seleccioneOpcion.innerText="Seleccione una opción";
+        cliente.appendChild(seleccioneOpcion);
+        for (let i = 0; i < result.length; i++) {
+          let nombreCliente = document.createElement("option");
+          nombreCliente.value = result[i]["id_cliente"];
+          nombreCliente.innerText = nombre_completo_cliente =
+            result[i]["primer_nombre"] +
+            " " +
+            result[i]["primer_apellido"];
+          cliente.appendChild(nombreCliente);
+        }
+    },
+});
+}
+
+
+
