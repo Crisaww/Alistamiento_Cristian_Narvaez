@@ -1,14 +1,14 @@
 //Se almacena la URL de la API
-let url="http://localhost:8082/api/v1/cliente/";
+let url="http://localhost:8000/tiendaCrisMar/api/v1/cliente/";
 
 function listarCliente() {
     var busqueda = document.getElementById("buscar").value;
     var urlBusqueda = url;
-    if (busqueda!=""){
-        urlBusqueda+="busquedafiltro/"+busqueda;
-    }   
+    // if (busqueda!=""){
+    //     urlBusqueda+="busquedafiltro/"+busqueda;
+    // }   
     $.ajax({
-        url:urlBusqueda,
+        url:url,
         type: "GET",
         success: function(result){//success: funcion que se ejecuta cusndo la peticion tiene exito
             console.log(result);
@@ -31,16 +31,16 @@ function listarCliente() {
                 
                 //almacenamos en valor
                 
-                celdaId.innerText = result[i]["id_cliente"];
-                celdaTipoDocumento.innerText= result[i]["tipo_documento"];
+                // celdaId.innerText = result[i]["id_cliente"];
+                // celdaTipoDocumento.innerText= result[i]["tipo_documento"];
                 celdaDocumento.innerText = result[i]["numero_documento"];
                 celdaPrimerNombre.innerText = result[i]["primer_nombre"];
                 celdaPrimerApellido.innerText = result[i]["primer_apellido"];
-                celdaCelular.innerText = result[i]["celular"];
-                celdaDireccion.innerText = result[i]["direccion_residencia"];
-                celdaCiudad.innerText = result[i]["ciudad_residencia"];
-                celdaCorreo.innerText = result[i]["correo_electronico"];
-                celdaEstado.innerText = result[i]["estado"];
+                // celdaCelular.innerText = result[i]["celular"];
+                // celdaDireccion.innerText = result[i]["direccion_residencia"];
+                // celdaCiudad.innerText = result[i]["ciudad_residencia"];
+                // celdaCorreo.innerText = result[i]["correo_electronico"];
+                // celdaEstado.innerText = result[i]["estado"];
                 
                 //agregando a los td a su respectivo th y agregandolos a la fila
 
